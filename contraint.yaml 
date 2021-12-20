@@ -1,0 +1,14 @@
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sValidImageRepos
+metadata:
+  name: allowed-repo-gcr
+spec:
+  match:
+    kinds:
+      - apiGroups: [""]
+        kinds: ["Deployment"]
+    namespaces:
+      - "staging"
+  parameters:
+    repos:
+      - "gcr"
